@@ -19,7 +19,7 @@ try{
 		$auth1 = str_rot13(base64_encode(json_encode($det)));
 		$auth = htmlspecialchars($auth1);
 		$new->execute();
-		$link = "http://localhost/camagru/?path=$auth";
+		$link = "http://localhost:8080/?path=$auth";
 		echo $link;
 		$message = "Hi {$det->userName},".PHP_EOL .
 						"Please Follow Link to reset Password:" . PHP_EOL .
@@ -27,8 +27,6 @@ try{
 						"Kind Regards ". PHP_EOL .
 						"Camagru Team";
 		echo mail($enter, "Recovery Request", $message);
-		
-		//echo $auth1 . ":"  . $auth2 . '::' . $update;
 	}
 	header("Location: ./index.php?msg=es");
 }catch(Exception $e){

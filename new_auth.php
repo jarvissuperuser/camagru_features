@@ -73,8 +73,6 @@ if ($res->vs == 3 &&$p ==$cp && strlen($p)>5 ){
 				e.preventDefault();
 				document.querySelector('form').setAttribute('hidden',true);
 				var data = document.querySelectorAll('input:valid');
-				//console.log(data[0].value,data[1].value);
-				//var args = {};
 				var form = new FormData();
 				for (var inr in data )
 					form.append(data[inr].name, data[inr].value);

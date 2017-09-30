@@ -6,7 +6,6 @@ var file = document.getElementById('fu');
     var tx = {};
     f.onload = function (e){
       tx = btoa(e.target.result);
-      //document.getElementById('rsp').innerHTML = '<img src="data:'+th[0].type +';base64,' + tx + '"/>';
       var formdt = new FormData();
       formdt.append('submit','file');
       formdt.append('data',tx);

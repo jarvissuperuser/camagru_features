@@ -5,8 +5,8 @@ session_start();
 try{
 $dbc = new DB_Control();
 $gallery_query = $dbc->insert("Camagru.gallery", 
-			["imageTitle","userID","creationDate"],
-			[":imgT",":uID","now()"]);
+			["imageTitle","userID","creationDate","imageStatus"],
+			[":imgT",":uID","now()",'0']);
 $st = $dbc->dbCon->prepare($gallery_query);
 }  catch (Exception $exc){
 	die(json_encode($exc->getTrace()));

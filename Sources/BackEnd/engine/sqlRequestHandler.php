@@ -6,7 +6,7 @@
         //Create USE DB query
         function ft_useCamagru($db_name) {
 
-            $dbQuery = "USE $db_name";
+            $dbQuery = file_get_contents("../../Sources/BackEnd/config/SQL/camagru.sql");
             return $dbQuery;
         }
 

@@ -16,7 +16,7 @@ function ft_validator($userInputSample) {
 function ft_username($email, $dbConn) {
 
 	//Query DB for username
-	$dbQuery = "SELECT userName, email FROM users WHERE email like :email or userName like :email";
+	$dbQuery = "SELECT userName, email FROM Camagru.users WHERE email like :email or userName like :email";
 	$preparedStatement = $dbConn->prepare($dbQuery);
 	$preparedStatement->bindParam(':email', $email);
 	$preparedStatement->execute();
@@ -70,7 +70,7 @@ function ft_userRegister($username, $email, $password, $dbConn) {
 	try{
 
 	//Query for Username insert to DB
-	$dbQuery = "INSERT INTO users (email, password, userName, verificationStatus)
+	$dbQuery = "INSERT INTO Camagru.users (email, password, userName, verificationStatus)
                 VALUES (:email, :password, :userName, :verificationStatus)";
 	$preparedStatement = $dbConn->prepare($dbQuery);
 	$preparedStatement->bindParam(':email', $email);

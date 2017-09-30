@@ -9,15 +9,13 @@
 /*
  * first query if user has liked already
  */
-//session_start();
-//ini_set("display_errors", 'on');
+
 $projectRoot = substr(getcwd(), 0, strpos(getcwd(), "Sources"));
 require_once $projectRoot . 'Sources/BackEnd/controller/relativePathController.php';
-//require_once $projectRoot.'Sources/BackEnd/config/setup.php';
 
 $dbc = new DB_Control();
 $table = "Camagru.socialNetworks";
-//echo $table;
+
 try {
 if (strlen(filter_input(INPUT_POST, "likedPic")) > 0) {
 	
@@ -29,7 +27,6 @@ if (strlen(filter_input(INPUT_POST, "likedPic")) > 0) {
 		$rsp = $dbc->prep($t, $dbc->dbCon);
 		$rsp->bindParam("id", filter_input(INPUT_POST, "likedPic"));
 		if ($rsp->execute()) {
-			//echo json_encode($rsp->fetchAll());
 			if ($rsp->rowCount() == 0) {
 				$liked = filter_input(INPUT_POST, "likedPic");
 				$which = filter_input(INPUT_POST, "ltype");
@@ -50,7 +47,6 @@ if (strlen(filter_input(INPUT_POST, "likedPic")) > 0) {
 				}
 				$lkr = new User($dbc);
 				$id = $lkr->getUser($_SESSION["userid"]);
-				//mail();
 				if ($ps->execute()) {
 					echo "{\"msg\":\"done $limiter\"}";
 				} else {
